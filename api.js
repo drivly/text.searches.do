@@ -7,4 +7,7 @@ const db = create({
   }
 })
 
-export default ([term, properties = '*']) => search(db, { term, properties })
+export default {
+  search: ([term, properties = '*']) => search(db, { term, properties }),
+  insert: ([obj], ctx) => insert(db, { ...obj, createdBy: ctx.user.email }),
+}
