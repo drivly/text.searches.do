@@ -7,4 +7,4 @@ const db = create({
   }
 })
 
-export default term => search(db, { term, properties: '*' })
+export default (term, properties = '*') => search(db, { term, properties })
